@@ -1,0 +1,18 @@
+{
+  "name": "pixel-commander",
+  "productName": "PixelCommander",
+  "description": "Electron application to make the configuration of neo pixels that are controlled arduino easier.",
+  "version": "1.0.0",
+  "main": "./main.prod.js",
+  "author": {
+    "name": "Snippy Valson",
+    "email": "v.snippy@gmail.com",
+    "url": "snippyvalson.github.io"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
