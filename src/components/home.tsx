@@ -46,10 +46,10 @@ export class Home extends React.Component<IProps, IState> {
 
     render() {
         return  <div className="application-grid">
-                    <div className="application-top-bar">
+                    <div className="application-top-bar application-card">
                         <div className="application-title">PIXEL COMMANDER</div>
                     </div>
-                    <div className="application-side-bar">
+                    <div className="application-side-bar application-card">
                         <div className={`sidebar-item ${this.checkSelected('static-color')}`} onClick={ this.onItemSideBarItemClicked.bind(this, 'static-color') }>    
                             Static Color
                         </div>
@@ -78,7 +78,7 @@ export class Home extends React.Component<IProps, IState> {
                             Custom
                         </div>
                     </div>
-                    <div className="application-content">
+                    <div className="application-content application-card">
                         <Router>
                             <Switch>
                                 <Route path={`${this.props.match.url}/static-color`} component={StaticColorView}></Route>
@@ -93,7 +93,7 @@ export class Home extends React.Component<IProps, IState> {
                             </Switch>
                         </Router>
                     </div>
-                    <div className="application-bottom-bar"></div>
+                    <div className="application-bottom-bar application-card"></div>
                 </div>;
     }
 }

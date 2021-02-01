@@ -1,4 +1,6 @@
 import React from 'react';
+import '../App.global.css';
+import style from './staticColor.style.css';
 
 interface IState {
 
@@ -19,8 +21,20 @@ export class StaticColorView extends React.Component<IProps, IState> {
     }
 
     render() {
-        return  <div>
-                    Static Color.
+        return  <div className={`${style.layout}`}>
+                    <div className={`${style.topRow}`}>
+                        <div className={`${style.colorChooser} application-card`}>
+                            Static chooser.
+                        </div>
+                        <div className={`${style.colorParams} application-card`}>
+                            Color params.
+                        </div>
+                    </div>
+                    <div className={`${style.bottomRow}`}>
+                        <div className={`${style.logs} application-card`}>
+
+                        </div>
+                    </div>
                 </div>
     }
 }
