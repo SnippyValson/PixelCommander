@@ -4,12 +4,19 @@ import style from './staticColor.style.css';
 
 import React from 'react';
 import Switch from "react-switch";
-import Select from 'react-select'
-
+import Select from 'react-select';
 
 interface IState {
-    cycle:boolean,
-    breath:boolean
+    
+    /**
+     * Indicates if colors have to cycled. 
+     */
+    cycle: boolean;
+
+    /**
+     * Indicates if the 'breathing' effect should be turned on. 
+     */
+    breath: boolean;
 }
 
 interface IProps {
@@ -28,6 +35,10 @@ export class StaticColorView extends React.Component<IProps, IState> {
         this.state = { cycle: false, breath: true };
     }
 
+    /**
+     * Custom styles for the react-select component.
+     * https://react-select.com/styles
+     */
     customStyles = {
         control: (provided:any, state:any) => ({
           ...provided,
@@ -83,7 +94,7 @@ export class StaticColorView extends React.Component<IProps, IState> {
                         <div className={`${style.colorParams} application-card`}>
                         <div>
                             <div className={`${style.titleBar}`}>
-                                <label>Parameters</label>
+                                <label>Settings</label>
                             </div>
                             <div className={`${style.params}`}>
                                 <div className={`${style.row}`}>
