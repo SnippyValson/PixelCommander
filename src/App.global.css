@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Open+Sans:wght@400&display=swap');
+
 /*
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
-
 *:focus {
   outline: 0;
   padding: 0px;
@@ -19,11 +19,11 @@ body {
   padding: 0px;
   margin: 0px;
   background: #fbfcff;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .sidebar-item {
   color: black;
-  font-family: 'Open Sans', sans-serif;
   font-size: 1.20em;
   padding: 5px;
   margin-top: 5px;
@@ -101,12 +101,7 @@ body {
 
 .application-card {
   border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.007), 
-                0 2px 4px rgba(0,0,0,0.007), 
-                0 4px 8px rgba(0,0,0,0.007), 
-                0 8px 16px rgba(0,0,0,0.007),
-                0 16px 32px rgba(0,0,0,0.007), 
-                0 32px 64px rgba(0,0,0,0.007);
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 /**

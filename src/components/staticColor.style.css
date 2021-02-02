@@ -1,15 +1,20 @@
 .layout {
+    height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 2fr 1fr;
 }
 
+/* The first row which holds the color list and color params. */
 .topRow {
     display: flex;
     grid-row: 1;
 }
 
+/* the second row which holds the communication logs. */
 .bottomRow {
     grid-row: 2;
+    display: flex;
     height: 100%;
 }
 
@@ -17,20 +22,72 @@
     margin-left: 10px;
     margin-top: 10px;
     width: 300px;
-    height: 350px;
+    height: 100%;
 }
 
 .colorParams {
     margin-left: 10px;
     margin-top: 10px;
-    width: 300px;
-    height: 350px;
+    width: 350px;
+    height: 100%;
 }
 
 .logs {
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 10px;
-    margin-right: 20px;
-    height: 100%;
+    margin-right: 10px;
+    height: calc(100% - 30px);
     width: 100%;
 }
+
+.titleBar {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    /* The title-bar  uses flexbox since the layout is one dimensional.*/
+    display: flex;
+}
+
+.addButton {
+    width: 75px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background:#47c2b3;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.addButton:hover {
+    /*A simple glow effect.*/
+    background:#58c7ba;
+    box-shadow: #47c2b399 0px 3px 8px;
+}
+
+.addButton:active {
+    box-shadow: rgba(0, 0, 0, 0.0) 0px 3px 8px;
+    transform: scale(0.99);
+}
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.rightItem {
+    /* Used to  float a element to the right in flex-box.*/
+    order: 2;
+    margin-left: auto;
+}
+
+.params {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.transitionChooser {
+    width: 160px;
+}
+
