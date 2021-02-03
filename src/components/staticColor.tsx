@@ -17,6 +17,12 @@ interface IState {
      * Indicates if the 'breathing' effect should be turned on. 
      */
     breath: boolean;
+
+    /**
+     * The list of colors to be set on the neopixel.
+     * If there are more than on color the cocors w
+     */
+    colors: string[];
 }
 
 interface IProps {
@@ -32,7 +38,8 @@ export class StaticColorView extends React.Component<IProps, IState> {
         this.transitions = [ { value:'fade', label: 'Fade' }, { value:'none', label: 'None' } ];
         this.handleCycleChanged = this.handleCycleChanged.bind(this);
         this.handleBreathChanged = this.handleBreathChanged.bind(this);
-        this.state = { cycle: false, breath: true };
+        this.handleColorsChanged =this.handleColorsChanged.bind(this);
+        this.state = { cycle: false, breath: true, colors: ['#FF0000', '#00FF00', '#0000FF'] };
     }
 
     /**
@@ -73,6 +80,12 @@ export class StaticColorView extends React.Component<IProps, IState> {
         this.setState( { breath: breath } )
     };
 
+    handleColorsChanged(color:string, index:number) {
+        let colors = this.state.colors;
+        colors[index] = color;
+        this.setState({ colors: colors });
+    }
+
     render() {
         return  <div className={`${style.layout}`}>
                     <div className={`${style.topRow}`}>
@@ -81,15 +94,19 @@ export class StaticColorView extends React.Component<IProps, IState> {
                                 <label className={`${style.heading}`}>Color List</label>
                                 <button className={`${style.addButton} ${style.rightItem}`}>+</button>
                             </div>
-                            <div>
-                                <ul>
-                                    <li>Test</li>
-                                    <li>Test</li>
-                                    <li>Test</li>
-                                    <li>Test</li>
-                                    <li>Test</li>
-                                </ul>
-                            </div>               
+                            <ul style={{ marginRight: '10px' }} >
+                                {
+                                    /**
+                                     * The idea here is to use the array map function to map the array elements into corresponding UI elements.
+                                     * Eventhough it looks like this could be wapped into a reusable component, doing so will only make things complex.
+                                     * Also it is necessary to set the state with updated colors or the color chooser doesn't work.
+                                     */
+                                    this.state.colors.map((c, i) => <div className={`${style.row}`}>
+                                                                        <div style={{background:`${c}`, width : '100px', height: '25px', borderRadius: '5px', display: 'inline-block', marginRight: '10px'}}></div>
+                                                                        <input className={`${style.rightItem}`} value={`${c}`} type={'color'} onChange={ e => {this.handleColorsChanged(e.target.value, i);}}></input>
+                                                                    </div>)
+                                }
+                            </ul>
                         </div>
                         <div className={`${style.colorParams} application-card`}>
                         <div>
